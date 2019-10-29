@@ -14,8 +14,12 @@ module.exports = {
         ]
     },
     plugins: [
-        { src: '~plugins/vue-infinite-scroll.js', ssr: false }
+        { src: '~plugins/vue-infinite-scroll.js', ssr: false },
+        // { src: '~plugins/element-ui.js', ssr: true }
     ],
+    // css: [
+    //     'element-ui/lib/theme-chalk/index.css'
+    // ],
     /*
      ** Customize the progress bar color
      */
