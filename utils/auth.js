@@ -4,7 +4,7 @@ const NameKey = 'User-Name'
 const AvatarKey = 'User-Avatar'
 
 export default {
-    setCookie(token, name, avatar) {
+    setUser(token, name, avatar) {
         Cookies.set(TokenKey, token)
         Cookies.set(NameKey, name)
         Cookies.set(AvatarKey, avatar)
@@ -15,5 +15,10 @@ export default {
             name: Cookies.get(NameKey),
             avatar: Cookies.get(AvatarKey)
         }
+    },
+    removeUser() {
+        Cookies.remove(TokenKey)
+        Cookies.remove(NameKey)
+        Cookies.remove(AvatarKey)
     }
 }

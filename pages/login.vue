@@ -64,11 +64,13 @@
       <div id="weixin"></div>
      </form> 
     </div> 
+    <div id="weixin"></div>
    </div> 
 </div>   
 </template>
 <script>
 import '~/assets/css/page-sj-person-loginsign.css'
+import '@/plugins/element-ui.js'
 import userApi from '@/api/user'
 import Auth from '@/utils/auth'
 export default {
@@ -104,7 +106,7 @@ export default {
         login(){
             userApi.login(this.mobile,this.password).then((response) => {
                 if(response.data.flag){
-                    Auth.setCookie(response.data.data.token,response.data.data.name,response.data.data.avatar)
+                    Auth.setUser(response.data.data.token,response.data.data.name,response.data.data.avatar)
                     location.href='/'
                 }
                 this.$message({
@@ -114,6 +116,21 @@ export default {
                  });
             })
         }
+    },
+    mounted(){
+        var obj = new WxLogin({
+            id:"weixin",
+            appid:"wx3bdb1192c22883f3",
+            scope:"snsapi_login",
+            redirect_uri:"http://note.java.itcast.cn/weixinlogin"
+        });
+    },
+    head:{
+        script:[
+            {
+                src:"http://res.wx.qq.com/connect/zh_CN/htmledition/js/wxLogin.js"
+            }
+        ]
     }
 
 }

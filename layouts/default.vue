@@ -5,7 +5,7 @@
         <div class="wrapper"> 
         <div class="sui-navbar"> 
             <div class="navbar-inner"> 
-            <a href="index-logined.html" class="sui-brand"><img src="~/assets/img/asset-logo-black.png" alt="社交" /></a> 
+            <a href="index-logined.html" class="sui-brand"><img src="~/assets/img/asset-logo.png" alt="社交" /></a> 
             <ul class="sui-nav"> 
                 <router-link tag="li" to="/" active-class="active" exact><a>首页</a></router-link>
                 <router-link tag="li" to="/qa" active-class="active"><a>问答</a></router-link>
@@ -17,8 +17,12 @@
             </ul> 
             <form class="sui-form sui-form pull-left"> 
                 <input type="text" placeholder="输入关键词..." /> 
-                <span class="btn-search fa fa-search"></span> 
+                
             </form> 
+           
+                <div  style="margin:30px" class="btn-search fa fa-search"></div> 
+           
+            
             <div class="sui-nav pull-right info" v-if="user.name!==undefined"> 
               <li><a href="/manager" class="notice">{{user.name}}</a></li>     
               <li><a @click="logout" class="notice">退出登陆</a></li>            
@@ -112,6 +116,7 @@ import '~/assets/plugins/sui/sui-append.min.css'
 import '~/assets/plugins/font-awesome/css/font-awesome.min.css'
 import '~/assets/css/widget-base.css'
 import '~/assets/css/widget-head-foot.css'
+import '@/plugins/element-ui.js'
 import Auth from '@/utils/auth'
 export default {
     data(){
@@ -124,7 +129,7 @@ export default {
     },
     methods: {
         logout(){
-            removeUser()
+            Auth.removeUser()
             location.href='/'
         }
     }

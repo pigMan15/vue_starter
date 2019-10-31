@@ -16,10 +16,16 @@ module.exports = {
     plugins: [
         { src: '~plugins/vue-infinite-scroll.js', ssr: false },
         // { src: '~plugins/element-ui.js', ssr: true }
+        { src: '~plugins/nuxt-quill-plugin.js', ssr: false }
     ],
     // css: [
     //     'element-ui/lib/theme-chalk/index.css'
     // ],
+    css: [
+        'quill/dist/quill.snow.css',
+        'quill/dist/quill.bubble.css',
+        'quill/dist/quill.core.css'
+    ],
     /*
      ** Customize the progress bar color
      */
